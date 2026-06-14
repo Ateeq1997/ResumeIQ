@@ -1,0 +1,520 @@
+{
+  "items": [
+    {
+      "id": "5bfdb5e2-faa5-47d7-af72-d1f2f80f9e61",
+      "created_at": "2026-06-14T13:26:12.858692+00:00",
+      "filename": "Ateeq Resume.pdf",
+      "ats_score": 20.44,
+      "match_percentage": 29.03,
+      "skill_distribution": [
+        {
+          "category": "Programming Languages",
+          "count": 6
+        },
+        {
+          "category": "Frontend",
+          "count": 5
+        },
+        {
+          "category": "Backend",
+          "count": 1
+        },
+        {
+          "category": "Database",
+          "count": 2
+        },
+        {
+          "category": "Cloud & DevOps",
+          "count": 2
+        },
+        {
+          "category": "Data & AI",
+          "count": 0
+        },
+        {
+          "category": "Soft Skills",
+          "count": 1
+        }
+      ],
+      "radar_chart": [
+        {
+          "skill": "Programming Languages",
+          "resume_score": 40.0,
+          "jd_requirement": 13.3
+        },
+        {
+          "skill": "Frontend",
+          "resume_score": 41.7,
+          "jd_requirement": 25.0
+        },
+        {
+          "skill": "Backend",
+          "resume_score": 10.0,
+          "jd_requirement": 0.0
+        },
+        {
+          "skill": "Database",
+          "resume_score": 25.0,
+          "jd_requirement": 12.5
+        },
+        {
+          "skill": "Cloud & DevOps",
+          "resume_score": 16.7,
+          "jd_requirement": 8.3
+        },
+        {
+          "skill": "Data & AI",
+          "resume_score": 0.0,
+          "jd_requirement": 0.0
+        },
+        {
+          "skill": "Soft Skills",
+          "resume_score": 10.0,
+          "jd_requirement": 0.0
+        }
+      ],
+      "ai_analysis": {
+        "strengths": [
+          "Resume has substantial detail and content.",
+          "Uses strong action verbs to describe experience."
+        ],
+        "weaknesses": [
+          "No major issues detected; consider tailoring further to the target role."
+        ],
+        "suggestions": [
+          "Add quantifiable metrics (%, $, numbers) to demonstrate impact."
+        ],
+        "rewrite_suggestions": [
+          "Original: 'Responsible for managing team' -> Rewrite: 'Led a cross-functional team of 8, improving delivery speed by 30%'",
+          "Original: 'Worked on backend development' -> Rewrite: 'Built and optimized REST APIs serving 10K+ daily requests using FastAPI'"
+        ],
+        "summary": "This resume contains a reasonable foundation. AI-powered analysis is using a heuristic fallback because no Gemini API key is configured \u2014 set GEMINI_API_KEY for deeper AI insights."
+      },
+      "matched_keywords": [
+        "ajax",
+        "apis",
+        "basic",
+        "bootstrap",
+        "clean",
+        "code",
+        "css",
+        "git",
+        "javascript"
+      ],
+      "missing_keywords": [
+        "ability",
+        "ability write",
+        "ajax expected",
+        "apis json",
+        "bachelor",
+        "bachelor s",
+        "basic knowledge",
+        "basic understanding",
+        "beginner-level",
+        "beginner-level proficiency",
+        "bootstrap javascript",
+        "candidates",
+        "candidates completed",
+        "candidates currently",
+        "clean well-structured",
+        "code basic",
+        "completed",
+        "degree",
+        "eligible",
+        "html"
+      ],
+      "resume_text_preview": "ATEEQ UR REHMAN Islamabad, 44000 | +923159594092 | ateeqhizb97@gmail.com OBJECTIVE Detail -oriented Web Developer with 3+ years of experience building responsive, scalable, and user -focused web applications. Proficient in modern frontend technologies with hands -on experience in full -stack development, API integration s, and SaaS -based platforms. Ado pt at translating business requirements into efficient technical solutions, with a focus on performance, clean UI implementation, and maintainab"
+    },
+    {
+      "id": "a011563b-9df7-452d-bca9-960aa2165c31",
+      "created_at": "2026-06-14T13:24:01.656273+00:00",
+      "filename": "Ateeq Resume.pdf",
+      "ats_score": 40.43,
+      "match_percentage": 48.28,
+      "skill_distribution": [
+        {
+          "category": "Programming Languages",
+          "count": 6
+        },
+        {
+          "category": "Frontend",
+          "count": 5
+        },
+        {
+          "category": "Backend",
+          "count": 1
+        },
+        {
+          "category": "Database",
+          "count": 2
+        },
+        {
+          "category": "Cloud & DevOps",
+          "count": 2
+        },
+        {
+          "category": "Data & AI",
+          "count": 0
+        },
+        {
+          "category": "Soft Skills",
+          "count": 1
+        }
+      ],
+      "radar_chart": [
+        {
+          "skill": "Programming Languages",
+          "resume_score": 40.0,
+          "jd_requirement": 6.7
+        },
+        {
+          "skill": "Frontend",
+          "resume_score": 41.7,
+          "jd_requirement": 16.7
+        },
+        {
+          "skill": "Backend",
+          "resume_score": 10.0,
+          "jd_requirement": 0.0
+        },
+        {
+          "skill": "Database",
+          "resume_score": 25.0,
+          "jd_requirement": 0.0
+        },
+        {
+          "skill": "Cloud & DevOps",
+          "resume_score": 16.7,
+          "jd_requirement": 8.3
+        },
+        {
+          "skill": "Data & AI",
+          "resume_score": 0.0,
+          "jd_requirement": 0.0
+        },
+        {
+          "skill": "Soft Skills",
+          "resume_score": 10.0,
+          "jd_requirement": 0.0
+        }
+      ],
+      "ai_analysis": {
+        "strengths": [
+          "Resume has substantial detail and content.",
+          "Uses strong action verbs to describe experience."
+        ],
+        "weaknesses": [
+          "No major issues detected; consider tailoring further to the target role."
+        ],
+        "suggestions": [
+          "Add quantifiable metrics (%, $, numbers) to demonstrate impact."
+        ],
+        "rewrite_suggestions": [
+          "Original: 'Responsible for managing team' -> Rewrite: 'Led a cross-functional team of 8, improving delivery speed by 30%'",
+          "Original: 'Worked on backend development' -> Rewrite: 'Built and optimized REST APIs serving 10K+ daily requests using FastAPI'"
+        ],
+        "summary": "This resume contains a reasonable foundation. AI-powered analysis is using a heuristic fallback because no Gemini API key is configured \u2014 set GEMINI_API_KEY for deeper AI insights."
+      },
+      "matched_keywords": [
+        "apis",
+        "applications",
+        "code",
+        "css",
+        "design",
+        "developer",
+        "development",
+        "experience",
+        "git",
+        "javascript",
+        "performance",
+        "responsive",
+        "web",
+        "web developer"
+      ],
+      "missing_keywords": [
+        "ability work",
+        "accessibility",
+        "accessibility usability",
+        "algorithms",
+        "algorithms debugging",
+        "apis database",
+        "applications support",
+        "architectures",
+        "architectures web",
+        "back-end",
+        "html",
+        "including",
+        "programming",
+        "role",
+        "web development"
+      ],
+      "resume_text_preview": "ATEEQ UR REHMAN Islamabad, 44000 | +923159594092 | ateeqhizb97@gmail.com OBJECTIVE Detail -oriented Web Developer with 3+ years of experience building responsive, scalable, and user -focused web applications. Proficient in modern frontend technologies with hands -on experience in full -stack development, API integration s, and SaaS -based platforms. Ado pt at translating business requirements into efficient technical solutions, with a focus on performance, clean UI implementation, and maintainab"
+    },
+    {
+      "id": "595cbf04-8c31-4406-b8b5-3e37b0965a45",
+      "created_at": "2026-06-14T13:22:56.744687+00:00",
+      "filename": "Ateeq Resume.pdf",
+      "ats_score": 21.52,
+      "match_percentage": 21.52,
+      "skill_distribution": [
+        {
+          "category": "Programming Languages",
+          "count": 6
+        },
+        {
+          "category": "Frontend",
+          "count": 5
+        },
+        {
+          "category": "Backend",
+          "count": 1
+        },
+        {
+          "category": "Database",
+          "count": 2
+        },
+        {
+          "category": "Cloud & DevOps",
+          "count": 2
+        },
+        {
+          "category": "Data & AI",
+          "count": 0
+        },
+        {
+          "category": "Soft Skills",
+          "count": 1
+        }
+      ],
+      "radar_chart": [
+        {
+          "skill": "Programming Languages",
+          "resume_score": 40.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Frontend",
+          "resume_score": 41.7,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Backend",
+          "resume_score": 10.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Database",
+          "resume_score": 25.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Cloud & DevOps",
+          "resume_score": 16.7,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Data & AI",
+          "resume_score": 0.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Soft Skills",
+          "resume_score": 10.0,
+          "jd_requirement": 50.0
+        }
+      ],
+      "ai_analysis": {
+        "strengths": [
+          "Resume has substantial detail and content.",
+          "Uses strong action verbs to describe experience."
+        ],
+        "weaknesses": [
+          "No major issues detected; consider tailoring further to the target role."
+        ],
+        "suggestions": [
+          "Add quantifiable metrics (%, $, numbers) to demonstrate impact."
+        ],
+        "rewrite_suggestions": [
+          "Original: 'Responsible for managing team' -> Rewrite: 'Led a cross-functional team of 8, improving delivery speed by 30%'",
+          "Original: 'Worked on backend development' -> Rewrite: 'Built and optimized REST APIs serving 10K+ daily requests using FastAPI'"
+        ],
+        "summary": "This resume contains a reasonable foundation. AI-powered analysis is using a heuristic fallback because no Gemini API key is configured \u2014 set GEMINI_API_KEY for deeper AI insights."
+      },
+      "matched_keywords": [
+        "agile",
+        "bootstrap",
+        "css",
+        "firebase",
+        "git",
+        "go",
+        "javascript",
+        "mongodb",
+        "next.js",
+        "node.js",
+        "python",
+        "react",
+        "sql",
+        "swift",
+        "tailwind",
+        "typescript",
+        "vercel"
+      ],
+      "missing_keywords": [
+        "ai",
+        "angular",
+        "aws",
+        "azure",
+        "c#",
+        "c++",
+        "ci/cd",
+        "collaboration",
+        "communication",
+        "data analysis",
+        "data visualization",
+        "deep learning",
+        "django",
+        "docker",
+        "dynamodb",
+        "elasticsearch",
+        "express",
+        "fastapi",
+        "flask",
+        "framer motion"
+      ],
+      "resume_text_preview": "ATEEQ UR REHMAN Islamabad, 44000 | +923159594092 | ateeqhizb97@gmail.com OBJECTIVE Detail -oriented Web Developer with 3+ years of experience building responsive, scalable, and user -focused web applications. Proficient in modern frontend technologies with hands -on experience in full -stack development, API integration s, and SaaS -based platforms. Ado pt at translating business requirements into efficient technical solutions, with a focus on performance, clean UI implementation, and maintainab"
+    },
+    {
+      "id": "ba0d0aac-d7c2-40b1-9434-57b591af2247",
+      "created_at": "2026-06-14T13:21:55.258413+00:00",
+      "filename": "Ateeq Resume.pdf",
+      "ats_score": 21.52,
+      "match_percentage": 21.52,
+      "skill_distribution": [
+        {
+          "category": "Programming Languages",
+          "count": 6
+        },
+        {
+          "category": "Frontend",
+          "count": 5
+        },
+        {
+          "category": "Backend",
+          "count": 1
+        },
+        {
+          "category": "Database",
+          "count": 2
+        },
+        {
+          "category": "Cloud & DevOps",
+          "count": 2
+        },
+        {
+          "category": "Data & AI",
+          "count": 0
+        },
+        {
+          "category": "Soft Skills",
+          "count": 1
+        }
+      ],
+      "radar_chart": [
+        {
+          "skill": "Programming Languages",
+          "resume_score": 40.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Frontend",
+          "resume_score": 41.7,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Backend",
+          "resume_score": 10.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Database",
+          "resume_score": 25.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Cloud & DevOps",
+          "resume_score": 16.7,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Data & AI",
+          "resume_score": 0.0,
+          "jd_requirement": 50.0
+        },
+        {
+          "skill": "Soft Skills",
+          "resume_score": 10.0,
+          "jd_requirement": 50.0
+        }
+      ],
+      "ai_analysis": {
+        "strengths": [
+          "Resume has substantial detail and content.",
+          "Uses strong action verbs to describe experience."
+        ],
+        "weaknesses": [
+          "No major issues detected; consider tailoring further to the target role."
+        ],
+        "suggestions": [
+          "Add quantifiable metrics (%, $, numbers) to demonstrate impact."
+        ],
+        "rewrite_suggestions": [
+          "Original: 'Responsible for managing team' -> Rewrite: 'Led a cross-functional team of 8, improving delivery speed by 30%'",
+          "Original: 'Worked on backend development' -> Rewrite: 'Built and optimized REST APIs serving 10K+ daily requests using FastAPI'"
+        ],
+        "summary": "This resume contains a reasonable foundation. AI-powered analysis is using a heuristic fallback because no Gemini API key is configured \u2014 set GEMINI_API_KEY for deeper AI insights."
+      },
+      "matched_keywords": [
+        "agile",
+        "bootstrap",
+        "css",
+        "firebase",
+        "git",
+        "go",
+        "javascript",
+        "mongodb",
+        "next.js",
+        "node.js",
+        "python",
+        "react",
+        "sql",
+        "swift",
+        "tailwind",
+        "typescript",
+        "vercel"
+      ],
+      "missing_keywords": [
+        "ai",
+        "angular",
+        "aws",
+        "azure",
+        "c#",
+        "c++",
+        "ci/cd",
+        "collaboration",
+        "communication",
+        "data analysis",
+        "data visualization",
+        "deep learning",
+        "django",
+        "docker",
+        "dynamodb",
+        "elasticsearch",
+        "express",
+        "fastapi",
+        "flask",
+        "framer motion"
+      ],
+      "resume_text_preview": "ATEEQ UR REHMAN Islamabad, 44000 | +923159594092 | ateeqhizb97@gmail.com OBJECTIVE Detail -oriented Web Developer with 3+ years of experience building responsive, scalable, and user -focused web applications. Proficient in modern frontend technologies with hands -on experience in full -stack development, API integration s, and SaaS -based platforms. Ado pt at translating business requirements into efficient technical solutions, with a focus on performance, clean UI implementation, and maintainab"
+    }
+  ]
+}
