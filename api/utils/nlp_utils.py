@@ -1,26 +1,12 @@
-"""NLP utilities: keyword extraction, skill matching, ATS scoring."""
+"""NLP utilities: keyword extraction, skill matching, ATS scoring.
+
+Pure-Python implementation (no numpy/scipy/scikit-learn/spacy) to keep the
+Vercel serverless function bundle well under the 250MB unzipped limit.
+"""
 import re
+import math
+from collections import Counter
 from typing import List, Tuple, Dict
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-
-try:
-    import spacy
-except ImportError:  # pragma: no cover - spaCy optional in serverless envs
-    spacy = None
-
-_NLP = None
-
-
-def get_nlp():
-    """Lazily load spaCy model (small English model). Returns None if unavailable."""
-    global _NLP
-    if _NLP is None and spacy is not None:
-        try:
-            _NLP = spacy.load("en_core_web_sm")
-        except OSError:
-            _NLP = spacy.blank("en")
-    return _NLP
 
 
 # Curated skill taxonomy grouped by category for skill-distribution chart.
@@ -61,7 +47,7 @@ ALL_SKILLS: List[str] = sorted(
     {s for skills in SKILL_TAXONOMY.values() for s in skills}
 )
 
-STOPWORDS = set(
+ENGLISH_STOPWORDS = set(
     """a about above after again against all am an and any are aren't as at be
     because been before being below between both but by can't cannot could
     couldn't did didn't do does doesn't doing don't down during each few for
@@ -78,27 +64,55 @@ STOPWORDS = set(
     yourselves""".split()
 )
 
+_TOKEN_RE = re.compile(r"[a-zA-Z][a-zA-Z+#.\-]*")
+
+
+def _tokenize(text: str) -> List[str]:
+    """Lowercase + extract word tokens, dropping stopwords and 1-char tokens."""
+    tokens = _TOKEN_RE.findall(text.lower())
+    cleaned = []
+    for t in tokens:
+        # Strip trailing punctuation (e.g. "experience." -> "experience"),
+        # but keep recognized multi-part terms like "node.js" or "c++/c#".
+        if t not in ALL_SKILLS:
+            t = t.strip(".-+#")
+        if t and t not in ENGLISH_STOPWORDS and len(t) > 1:
+            cleaned.append(t)
+    return cleaned
+
+
+def _ngrams(tokens: List[str], n: int) -> List[str]:
+    if n == 1:
+        return tokens
+    return [" ".join(tokens[i:i + n]) for i in range(len(tokens) - n + 1)]
+
 
 def extract_keywords(text: str, top_n: int = 30) -> List[str]:
-    """Extract top keywords/phrases from text using TF-IDF on unigrams+bigrams."""
-    text = text.lower()
-    if not text.strip():
+    """
+    Extract top keywords/phrases from text using a simple TF score over
+    unigrams and bigrams (pure Python, no sklearn).
+    """
+    text = text.strip()
+    if not text:
         return []
-    vectorizer = TfidfVectorizer(
-        ngram_range=(1, 2),
-        stop_words="english",
-        max_features=200,
-        token_pattern=r"(?u)\b[a-zA-Z][a-zA-Z+#.\-]*\b",
-    )
-    try:
-        tfidf = vectorizer.fit_transform([text])
-    except ValueError:
+    tokens = _tokenize(text)
+    if not tokens:
         return []
-    scores = tfidf.toarray()[0]
-    terms = vectorizer.get_feature_names_out()
-    pairs = sorted(zip(terms, scores), key=lambda x: x[1], reverse=True)
-    keywords = [term for term, score in pairs if score > 0][:top_n]
-    return keywords
+
+    unigrams = tokens
+    bigrams = _ngrams(tokens, 2)
+
+    counts = Counter(unigrams)
+    counts.update(bigrams)
+
+    # Rank by frequency, slight boost for bigrams (more specific phrases)
+    scored = []
+    for term, count in counts.items():
+        weight = count * (1.3 if " " in term else 1.0)
+        scored.append((term, weight))
+
+    scored.sort(key=lambda x: x[1], reverse=True)
+    return [term for term, _ in scored[:top_n]]
 
 
 def find_skills_in_text(text: str) -> List[str]:
@@ -112,17 +126,43 @@ def find_skills_in_text(text: str) -> List[str]:
     return found
 
 
-def compute_tfidf_similarity(resume_text: str, jd_text: str) -> float:
-    """Cosine similarity between resume and JD using TF-IDF (0-100 scale)."""
+def _term_frequencies(tokens: List[str]) -> Dict[str, float]:
+    """Return normalized term frequency vector (as a dict) for a token list."""
+    total = len(tokens) or 1
+    counts = Counter(tokens)
+    return {term: count / total for term, count in counts.items()}
+
+
+def compute_similarity(resume_text: str, jd_text: str) -> float:
+    """
+    Cosine similarity between resume and JD using simple term-frequency
+    vectors (pure Python). Returns a 0-100 scale score.
+    """
     if not resume_text.strip() or not jd_text.strip():
         return 0.0
-    vectorizer = TfidfVectorizer(stop_words="english")
-    try:
-        matrix = vectorizer.fit_transform([resume_text, jd_text])
-    except ValueError:
+
+    resume_tokens = _tokenize(resume_text)
+    jd_tokens = _tokenize(jd_text)
+    if not resume_tokens or not jd_tokens:
         return 0.0
-    sim = cosine_similarity(matrix[0:1], matrix[1:2])[0][0]
-    return round(float(sim) * 100, 2)
+
+    vec_a = _term_frequencies(resume_tokens)
+    vec_b = _term_frequencies(jd_tokens)
+
+    all_terms = set(vec_a) | set(vec_b)
+    dot = sum(vec_a.get(t, 0.0) * vec_b.get(t, 0.0) for t in all_terms)
+    norm_a = math.sqrt(sum(v * v for v in vec_a.values()))
+    norm_b = math.sqrt(sum(v * v for v in vec_b.values()))
+
+    if norm_a == 0 or norm_b == 0:
+        return 0.0
+
+    similarity = dot / (norm_a * norm_b)
+    return round(similarity * 100, 2)
+
+
+# Backwards-compatible alias used elsewhere in the codebase
+compute_tfidf_similarity = compute_similarity
 
 
 def calculate_ats_score(resume_text: str, jd_text: str) -> Tuple[dict, List[str], List[str]]:
@@ -152,9 +192,9 @@ def calculate_ats_score(resume_text: str, jd_text: str) -> Tuple[dict, List[str]
     total = len(combined_jd_terms) if combined_jd_terms else 1
     match_percentage = round((len(matched) / total) * 100, 2)
 
-    similarity_score = compute_tfidf_similarity(resume_text, jd_text) if jd_text.strip() else match_percentage
+    similarity_score = compute_similarity(resume_text, jd_text) if jd_text.strip() else match_percentage
 
-    # ATS score: weighted blend of keyword match % and semantic similarity
+    # ATS score: weighted blend of keyword match % and term-overlap similarity
     ats_score = round((match_percentage * 0.6) + (similarity_score * 0.4), 2)
     ats_score = min(ats_score, 100.0)
 
